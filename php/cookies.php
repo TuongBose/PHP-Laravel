@@ -13,4 +13,11 @@ setcookie('name','Tuong',time()+24*3600);
 // Trong PHP, cookie và header phải được gửi trước bất kỳ dữ liệu nào ra trình duyệt.
 echo "Cookies in PHP";
 
+// check the existing Cookie
+if(isset($_COOKIE['name'])){
+    echo $_COOKIE['name'];
+}
+
+// remove cookie, set cookie is expired
+//setcookie('name','',time()-24*3600); // unset cookie
 ?>
