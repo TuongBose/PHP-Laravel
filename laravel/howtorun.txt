@@ -1,0 +1,12 @@
+php artisan serve
+Nếu muốn cấu hình port khác
+php artisan serve --port=8082
+
+update/install dependencies
+composer update/ composer install
+
+Web tìm thư viện
+https://packagist.org/
+
+Cài thư viện mollie:
+composer require mollie/mollie-api-php
