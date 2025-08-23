@@ -144,4 +144,4 @@ php artisan route:list
 
 ## License
 
-This project is open-sourced and available for learning purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
