@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand text-primary" href="#">MySite</a>
+        <a class="navbar-brand text-primary" href="/">MySite</a>
         {{-- Links --}}
         <ul class="navbar-nav">
             <li class="nav-item">

@@ -1,0 +1,136 @@
+php artisan serve
+Nếu muốn cấu hình port khác
+php artisan serve --port=8082
+
+update/install dependencies
+composer update/ composer install
+
+Web tìm thư viện
+https://packagist.org/
+
+Cài thư viện mollie:
+composer require mollie/mollie-api-php
+
+Lệnh hỗ trợ project
+php artisan list
+
+Lệnh tạo controller
+php artisan make:controller ProductController
+
+Nếu đã tồn tại controller này rồi thì sẽ hiện thông báo controller này đã tồn tại
+ERROR  Controller already exists.
+
+Lệnh tạo controller cưỡng bức, bắt buộc, không kiểm tra đã tồn tại hay chưa, controller đã tồn tại sẽ bị ghi đè
+php artisan make:controller ProductController --force
+
+Lệnh php artisan storage:link trong Laravel dùng để tạo một symbolic link (liên kết tượng trưng) từ thư mục public/storage trỏ tới thư mục storage/app/public.
+Cụ thể:
+Trong Laravel, khi bạn lưu file (ảnh, tài liệu...) bằng disk public (định nghĩa trong config/filesystems.php), thì file sẽ được lưu ở:
+storage/app/public
+
+Nhưng thư mục storage/app/public không truy cập trực tiếp từ web được.
+Lệnh php artisan storage:link sẽ tạo một symbolic link trong thư mục public/ như sau:
+public/storage  --->  storage/app/public
+
+Nhờ vậy, bạn có thể truy cập file đã upload thông qua URL, ví dụ:
+http://localhost/storage/tenfile.jpg
+
+php artisan storage:link
+
+Lệnh tạo model
+php artisan make:model Post
+
+Lệnh tạo migration cho table
+php artisan make:migration create_table_posts
+
+Có thể tạo model và migration cho table cùng 1 lúc
+php artisan make:model Post -m
+ ┌ Do you want to generate additional components for the model? ┐
+ │ Yes     No                                                   │
+ └──────────────────────────────────────────────────────────────┘
+Chọn Yes
+
+Lệnh áp dụng migration
+php artisan migrate
+
+Lệnh reset lai migrate, quay trở lại ban đầu
+php artisan migrate:reset
+
+Lệnh rollback + migrate
+php artisan migrate:refresh
+
+Lệnh delete all tables and migrate
+php artisan migrate:fresh
+
+Xem status của migration
+php artisan migrate:status
+
+Tạo dữ liệu fake cho bảng posts
+php artisan make:factory PostFactory
+
+Tinker is a repl (read-eval-print loop)
+php artisan tinker
+> \App\Models\Post::factory()->create();
+> \App\Models\Post::factory()->count(2)->create();
+
+Tạo controller cho Food
+php artisan make:controller FoodController
+
+Tạo model, migration, table Food
+php artisan make:model Food -m
+
+Tạo controller cho Category
+php artisan make:controller CategoryController
+
+Nếu muốn Laravel tạo sẵn nhiều hàm CRUD (index, create, store, show, edit, update, destroy) thì dùng flag --resource:
+php artisan make:controller CategoryController --resource
+
+Tạo model, migration, table Category
+php artisan make:model Category -m
+
+Tạo rule
+php artisan make:rule Uppercase
+
+Thêm cột cho bảng foods bằng migration
+php artisan make:migration add_image_to_foods 
+
+Lệnh clear các services và package
+php artisan clear-compiled
+
+Chế độ Maintenance mode up/down: Chế độ bảo trì
+Để up thì refresh code là nhìn thấy ngay
+Để down là đang bảo trì
+php artisan up
+php artisan down
+
+Lệnh xem app đang chạy trên môi trường gì
+php artisan env
+
+Hỗ trợ
+php artisan help
+
+Xem phiên bản
+php artisan --version
+
+Clear cache 
+php artisan optimize
+Hoặc
+php artisan cache:clear
+
+Clear token
+php artisan auth:clear-resets
+
+Tạo 1 key mới
+php artisan key:generate
+
+Tạo bảng session, lưu thông tin trên backend
+php artisan session:table
+
+Xóa cache view
+php artisan view:clear
+
+Xem các route RẤT HỮU ÍCH VÀ QUAN TRỌNG
+php artisan route:list
+
+Xóa các route không dùng
+php artisan route:clear

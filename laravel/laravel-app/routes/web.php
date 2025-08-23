@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FoodController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
+use App\Models\Category;
 
 // Phương thức get
 // Kiểu dữ liệu trả về là ProductController
@@ -36,6 +40,10 @@ Route::get('products/{name}/{id}', [
 // Define more routes
 Route::get('/',[PageController::class,'index']);
 Route::get('/about',[PageController::class,'about']);
+Route::get('/post',[PostController::class,'index']);
+Route::resource('/food',FoodController::class);
+Route::resource('/category',CategoryController::class);
+
 /*
 Route::get('/', function () {
     return view('home'); // response a view
