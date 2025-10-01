@@ -45,3 +45,28 @@ EXPOSE 8000
 
 # Khi container khởi động thì tự chạy php artisan serve
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+
+
+# If project does not exist, open the comment code below, access the bash container to create a project using composer change workdir above with the project name
+# FROM php:8.2-apache
+
+# # Cài extension Laravel cần
+# RUN apt-get update && apt-get install -y \
+#     git unzip curl \
+#     libpng-dev libjpeg-dev libfreetype6-dev \
+#     libzip-dev libonig-dev zip \
+#  && docker-php-ext-configure gd --with-freetype --with-jpeg \
+#  && docker-php-ext-install pdo pdo_mysql mbstring bcmath gd zip \
+#  && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# # Bật mod_rewrite cho Apache (Laravel cần)
+# RUN a2enmod rewrite
+
+# # Cài Composer (copy từ image composer chính thức)
+# COPY --from=composer:2.8.10 /usr/bin/composer /usr/bin/composer
+
+# # Thư mục làm việc
+# WORKDIR /var/www/html
+
+# # Mặc định chạy Apache
+# CMD ["apache2-foreground"]
